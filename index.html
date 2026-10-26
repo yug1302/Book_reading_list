@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Reading List Application | Lecture 11</title>
+    <meta name="description" content="Lecture 11 Book Reading List Application by Rohit Ahir with live search, status filters, and localStorage.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="badge-lecture">Lecture 11 Coursework</div>
+            <h1>Book Reading List</h1>
+            <p class="subtitle">Track books you want to read, are currently reading, and have completed.</p>
+        </header>
+
+        <!-- Stats Bar -->
+        <section class="stats-grid" id="stats-bar">
+            <div class="stat-card">
+                <span class="stat-num" id="stat-total">0</span>
+                <span class="stat-label">Total Books</span>
+            </div>
+            <div class="stat-card stat-completed">
+                <span class="stat-num" id="stat-completed">0</span>
+                <span class="stat-label">Completed</span>
+            </div>
+            <div class="stat-card stat-reading">
+                <span class="stat-num" id="stat-reading">0</span>
+                <span class="stat-label">Reading</span>
+            </div>
+            <div class="stat-card stat-wishlist">
+                <span class="stat-num" id="stat-wishlist">0</span>
+                <span class="stat-label">Want to Read</span>
+            </div>
+        </section>
+
+        <!-- Add Book Section -->
+        <section class="card form-card">
+            <h2>Add New Book</h2>
+            <form id="book-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="book-title">Book Title <span class="req">*</span></label>
+                        <input type="text" id="book-title" placeholder="e.g. Clean Code" required autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for="book-author">Author <span class="req">*</span></label>
+                        <input type="text" id="book-author" placeholder="e.g. Robert C. Martin" required autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for="book-status">Status</label>
+                        <select id="book-status">
+                            <option value="Want to Read">Want to Read</option>
+                            <option value="Currently Reading">Currently Reading</option>
+                            <option value="Completed">Completed</option>
+                        </select>
+                    </div>
+                    <div class="form-group form-btn-group">
+                        <button type="submit" class="btn btn-primary" id="add-btn">Add Book</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <!-- Search & Filter Controls -->
+        <section class="card controls-card">
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Search by title or author..." aria-label="Search books">
+            </div>
+            <div class="filter-tabs" role="tablist">
+                <button type="button" class="tab-btn active" data-filter="all">All</button>
+                <button type="button" class="tab-btn" data-filter="Want to Read">Want to Read</button>
+                <button type="button" class="tab-btn" data-filter="Currently Reading">Reading</button>
+                <button type="button" class="tab-btn" data-filter="Completed">Completed</button>
+            </div>
+        </section>
+
+        <!-- Books List -->
+        <section class="books-section">
+            <div class="section-head">
+                <h2 id="list-heading">My Reading List</h2>
+                <span class="count-pill" id="shown-count">Showing 0 books</span>
+            </div>
+            <div id="books-container" class="books-grid">
+                <!-- Dynamically rendered book cards -->
+            </div>
+            <div id="empty-state" class="empty-state" style="display: none;">
+                <p class="empty-icon">&#128218;</p>
+                <h3>No books found</h3>
+                <p class="empty-text">Try adjusting your search or add a new book above!</p>
+            </div>
+        </section>
+
+        <footer class="app-footer">
+            <p>Developed for Lecture 11 Practical Assessment &bull; <a href="https://github.com/ayankhanbebea-lgtm" target="_blank" rel="noopener">Rohit Ahir</a></p>
+            <p class="storage-note">Data persists in your browser's LocalStorage</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

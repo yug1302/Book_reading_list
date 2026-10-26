@@ -1,0 +1,437 @@
+:root {
+    --bg-page: #dceeee;
+    --card-bg: #ffffff;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+    --line: #e2e8f0;
+    
+    --primary: #3b82f6;
+    --primary-hover: #2563eb;
+    --primary-soft: #eff6ff;
+    
+    --success: #10b981;
+    --success-soft: #ecfdf5;
+    
+    --warning: #f59e0b;
+    --warning-soft: #fffbeb;
+    
+    --danger: #ef4444;
+    --danger-soft: #fef2f2;
+    
+    --radius: 10px;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    padding: 2rem 1rem 3rem;
+    min-height: 100vh;
+}
+
+.app-container {
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+/* Header */
+.app-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.badge-lecture {
+    display: inline-block;
+    background: var(--primary-soft);
+    color: var(--primary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.app-header h1 {
+    font-size: clamp(2rem, 4vw, 2.6rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+}
+
+/* Stats */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat-card {
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.1rem;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.stat-num {
+    display: block;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1.2;
+}
+
+.stat-completed .stat-num { color: var(--success); }
+.stat-reading .stat-num { color: var(--warning); }
+.stat-wishlist .stat-num { color: #8b5cf6; }
+
+.stat-label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+/* Cards */
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 1.5rem;
+}
+
+.form-card h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 1.2fr auto;
+    gap: 0.85rem;
+    align-items: flex-end;
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.req {
+    color: var(--danger);
+}
+
+input[type="text"], select {
+    appearance: none;
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 0.65rem 0.9rem;
+    font: inherit;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    width: 100%;
+}
+
+input[type="text"]:focus, select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.btn {
+    appearance: none;
+    font: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 0.65rem 1.2rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.1s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+/* Controls */
+.controls-card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+}
+
+.search-box {
+    flex: 1;
+    min-width: 220px;
+}
+
+.filter-tabs {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    appearance: none;
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--text-secondary);
+    padding: 0.45rem 0.85rem;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.tab-btn:hover {
+    background: var(--primary-soft);
+    color: var(--primary);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.tab-btn.active {
+    background: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
+}
+
+/* Books Section */
+.section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.section-head h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.count-pill {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.books-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.book-card {
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.15rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.book-card:hover {
+    border-color: #cbd5e1;
+    transform: translateY(-1px);
+}
+
+.book-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.book-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.2rem;
+    word-break: break-word;
+}
+
+.book-card.is-completed .book-title {
+    color: var(--text-secondary);
+}
+
+.book-author {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.status-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 999px;
+    text-transform: capitalize;
+}
+
+.badge-completed {
+    background: var(--success-soft);
+    color: var(--success);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.badge-reading {
+    background: var(--warning-soft);
+    color: var(--warning);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.badge-wishlist {
+    background: #f5f3ff;
+    color: #8b5cf6;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.book-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-icon {
+    appearance: none;
+    border: 1px solid var(--line);
+    background: var(--card-bg);
+    color: var(--text-secondary);
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn-icon:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.btn-toggle-read {
+    color: var(--success);
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+.btn-toggle-read:hover {
+    background: var(--success-soft);
+    border-color: var(--success);
+}
+
+.btn-delete {
+    color: var(--danger);
+    border-color: rgba(239, 68, 68, 0.2);
+}
+
+.btn-delete:hover {
+    background: var(--danger-soft);
+    border-color: var(--danger);
+}
+
+/* Empty State */
+.empty-state {
+    background: var(--card-bg);
+    border: 1px dashed var(--line);
+    border-radius: var(--radius);
+    padding: 3rem 1.5rem;
+    text-align: center;
+}
+
+.empty-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.empty-state h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.empty-text {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Footer */
+.app-footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.app-footer a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.storage-note {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 0.3rem;
+}

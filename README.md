@@ -1,6 +1,6 @@
 # Book Reading List Application
 
-A responsive, client-side Book Reading List web application developed for **Lecture 11** coursework at JECRC University by **Rohit Ahir**.
+A responsive, client-side Book Reading List web application developed for **Lecture 11** coursework at JECRC University by **Yugansh Joshi**.
 
 ## Live Application
 - **Live Deployment**: (https://tiny-paprenjak-1dffbd.netlify.app)
